@@ -1,3 +1,8 @@
+/*  Jongoh (Andy) Jeong
+*   Date: 12/2018
+*   Reference: Baekjoon online judge
+*
+*/
 #include <iostream>
 #include <vector>
 #include <algorithm>
