@@ -28,7 +28,8 @@ bool go(int index) {
     // iterate through all possible numbers
     for (int i=-10; i<=10; i++) {
         ans[index] = i;
-        if (go(index+1)) return true;
+        if (go(index+1)) 
+            return true;
     }
     return false;
 }

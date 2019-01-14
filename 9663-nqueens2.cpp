@@ -8,21 +8,21 @@
 
 #include <iostream>
 using namespace std;
-bool a[15][15];
+bool board[15][15];
 int n;
 bool check_col[15];
 bool check_dig[40];
 bool check_dig2[40];
 bool check(int row, int col) {
-    // |
+    // | (right above)
     if (check_col[col]) { //if queen is there, can't place
         return false;
     }
-    // upper right diagonal
+    // upper right diagonal (row + col)
     if (check_dig[row+col]) {
         return false;
     }
-    // upper left diagonal
+    // upper left diagonal (row - col)
     if (check_dig2[row-col+n]) {
         return false;
     }
@@ -40,7 +40,7 @@ int calc(int row) {
             check_dig[row+col] = true;
             check_dig2[row-col+n] = true;
             check_col[col] = true;
-            a[row][col] = true;
+            board[row][col] = true;
 
             cnt += calc(row+1);
 
@@ -48,7 +48,7 @@ int calc(int row) {
             check_dig[row+col] = false;
             check_dig2[row-col+n] = false;
             check_col[col] = false;
-            a[row][col] = false;
+            board[row][col] = false;
         }
     }
     return cnt;

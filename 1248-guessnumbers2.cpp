@@ -1,3 +1,9 @@
+/*  Jongoh (Andy) Jeong
+*   Date: 12/2018
+*   Reference: Baekjoon online judge
+*   using backtracking
+*/
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -23,7 +29,7 @@ bool go(int index) {
     if (index == n) {
         return true;
     }
-    // 컷팅 조건
+    // 컷팅 조건: 함수를 중간에 자를수 있는 조건 (contingency)
     // index번째 수를 결정하면, prev 수들(0 ~ index번째)은 변하지 않는다.
     // 따라서, 모든 sign[k][index](0 ≤ k <index)를 go(index)에서 검사할 수 있다
     if (sign[index][index] == 0) {
@@ -32,7 +38,8 @@ bool go(int index) {
     }
     for (int i=1; i<=10; i++) {
         ans[index] = sign[index][index]*i;
-        if (check(index) && go(index+1)) return true;
+        if (check(index) && go(index+1)) 
+            return true;
     }
     return false;
 }

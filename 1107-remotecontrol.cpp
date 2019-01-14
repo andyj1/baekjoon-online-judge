@@ -14,7 +14,8 @@ int possible(int c){
   }
   int len = 0;
   while( c > 0 ){
-    if(broken[c % 10]) return 0;
+    if(broken[c % 10])
+      return 0;
     len += 1;
     c /= 10;
   }
@@ -41,7 +42,8 @@ int main(){
     int c = i;
     int len = possible(c); // if 0, not posible; not 0, possible
     if (len > 0){
-
+      int press = c - n;
+      if (press < 0){
         press = -press;
       }
       if(ans > len + press){
